@@ -10,11 +10,6 @@ jobs:
     name: Run build
     runs-on: ubuntu-latest
 
-    strategy:
-      fail-fast: true
-      matrix:
-        node: [14.x]
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -39,3 +34,15 @@ jobs:
           pinataKey: ${{ secrets.PINATA_KEY }}
           pinataSecret: ${{ secrets.PINATA_SECRET }}
           pinataPinName: ualeto-frontend
+
+      - name: Update Cloudflare DNS
+        uses: xorilog/cloudflare-dns-action@1.0.0
+        id: cloudflare
+        env:
+          RECORD_DOMAIN: ualeto.app
+          RECORD_TYPE: TXT
+          RECORD_VALUE: dnslink=/ipfs/${{ steps.pinata.outputs.hash }}
+          RECORD_NAME: _dnslink
+          RECORD_TTL: 1
+
+        
