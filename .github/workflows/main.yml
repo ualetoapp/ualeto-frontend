@@ -44,5 +44,5 @@ jobs:
           RECORD_VALUE: dnslink=/ipfs/${{ steps.pinata.outputs.hash }}
           RECORD_NAME: _dnslink
           RECORD_TTL: 1
-
-        
+          CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
+          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
