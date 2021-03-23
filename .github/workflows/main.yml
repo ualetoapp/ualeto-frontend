@@ -1,20 +1,20 @@
-name: Test
+name: App Delivery
 
 on:
-  pull_request:
   push:
     branches:
       - base
 
 jobs:
-  test:
-    name: Run tests
+  build:
+    name: Run build
     runs-on: ubuntu-latest
 
     strategy:
       fail-fast: true
       matrix:
         node: [14.x]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -27,5 +27,15 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Run tests
-        run: yarn test --watchAll=false
+      - name: Run build
+        run: yarn isready
+
+      - name: Delivery to Pinata
+        uses: aquiladev/ipfs-action@v1
+        id: pinata
+        with:
+          path: ./build
+          service: pinata
+          pinataKey: ${{ secrets.PINATA_KEY }}
+          pinataSecret: ${{ secrets.PINATA_SECRET }}
+          pinataPinName: ualeto-frontend
