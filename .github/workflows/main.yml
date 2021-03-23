@@ -36,14 +36,7 @@ jobs:
           pinataPinName: ualeto-frontend
 
       - name: Update Cloudflare DNS
-        uses: xorilog/cloudflare-dns-action@1.0.0
+        uses: wei/curl@v1.1.1
         id: cloudflare
-        env:
-          RECORD_DOMAIN: ualeto.app
-          RECORD_TYPE: TXT
-          RECORD_VALUE: dnslink=/ipfs/${{ steps.pinata.outputs.hash }}
-          RECORD_NAME: _dnslink
-          RECORD_TTL: 1
-          CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
-          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
-          GITHUB_REF: refs/heads/master
+        with:
+          args: -X PUT "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/dns_records/${{ secrets.CLOUDFLARE_RECORD_ID }}" -H "X-Auth-Email: ${{ secrets.CLOUDFLARE_EMAIL }}" -H "X-Auth-Key: ${{ secrets.CLOUDFLARE_TOKEN }}" -H "Content-Type: application/json" --data '{"type":"TXT","name":"_dnslink","content":"dnslink=/ipfs/${{ steps.pinata.outputs.hash }}","ttl":120,"proxied":false}'
