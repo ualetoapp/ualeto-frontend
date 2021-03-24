@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "UALET0",
+  "name": "UALET0",
+  "description": "The wallet for me",
   "icons": [
     {
       "src": "favicon.ico",
