@@ -1,15 +1,15 @@
-import { ResetCSS } from '@pancakeswap-libs/uikit'
-import PageLoader from 'components/PageLoader'
-import React, { lazy, Suspense } from 'react'
-import { Redirect, Route, Router, Switch } from 'react-router-dom'
+import { ResetCSS } from '@pancakeswap-libs/uikit';
+import PageLoader from 'components/PageLoader';
+import React, { lazy, Suspense } from 'react';
+import { Redirect, Route, Router, Switch } from 'react-router-dom';
 
-import history from './routerHistory'
-import GlobalStyle from './style/Global'
+import history from './routerHistory';
+import GlobalStyle from './style/Global';
 
 // Route-based code splitting
-const About = lazy(() => import('./views/About'))
-const Home = lazy(() => import('./views/Home'))
-const NotFound = lazy(() => import('./views/NotFound'))
+const About = lazy(() => import('./views/About'));
+const Home = lazy(() => import('./views/Home'));
+const NotFound = lazy(() => import('./views/NotFound'));
 
 const App: React.FC = () => {
   return (
@@ -33,7 +33,7 @@ const App: React.FC = () => {
         </Switch>
       </Suspense>
     </Router>
-  )
-}
+  );
+};
 
-export default App
+export default App;

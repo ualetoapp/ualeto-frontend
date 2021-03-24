@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
-import { PancakeTheme } from '@pancakeswap-libs/uikit/dist/theme'
-import { createGlobalStyle } from 'styled-components'
+import { PancakeTheme } from '@pancakeswap-libs/uikit/dist/theme';
+import { createGlobalStyle } from 'styled-components';
 
 declare module 'styled-components' {
   /* eslint-disable @typescript-eslint/no-empty-interface */
@@ -18,6 +18,6 @@ const GlobalStyle = createGlobalStyle`
       max-width: 100%;
     }
   }
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;

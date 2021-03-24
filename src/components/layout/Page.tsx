@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import Container from './Container'
+import Container from './Container';
 
 const Page = styled(Container)`
   min-height: calc(100vh - 64px);
@@ -14,6 +14,6 @@ const Page = styled(Container)`
     padding-top: 32px;
     padding-bottom: 32px;
   }
-`
+`;
 
-export default Page
+export default Page;
