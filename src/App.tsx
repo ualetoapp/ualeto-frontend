@@ -1,9 +1,10 @@
-import React, { lazy, Suspense } from 'react'
-import { Router, Redirect, Route, Switch } from 'react-router-dom'
 import { ResetCSS } from '@pancakeswap-libs/uikit'
 import PageLoader from 'components/PageLoader'
-import GlobalStyle from './style/Global'
+import React, { lazy, Suspense } from 'react'
+import { Redirect, Route, Router, Switch } from 'react-router-dom'
+
 import history from './routerHistory'
+import GlobalStyle from './style/Global'
 
 // Route-based code splitting
 const About = lazy(() => import('./views/About'))

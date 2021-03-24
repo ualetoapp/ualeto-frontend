@@ -12,8 +12,10 @@ module.exports = {
     jest: true,
   },
   extends: "@pancakeswap-libs/eslint-config-pancake",
+  plugins: ["simple-import-sort"],
   rules: {
-    "sort-imports": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
     "no-console": ["warn", { "allow": ["info", "warn", "error"] }],
     "no-plusplus": 0,
     "prefer-destructuring": ["warn", { "object": true, "array": false }],

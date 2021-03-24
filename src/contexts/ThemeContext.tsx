@@ -1,6 +1,6 @@
+import { dark, light } from '@pancakeswap-libs/uikit'
 import React, { useState } from 'react'
 import { ThemeProvider as SCThemeProvider } from 'styled-components'
-import { light, dark } from '@pancakeswap-libs/uikit'
 
 const CACHE_KEY = 'IS_DARK'
 
